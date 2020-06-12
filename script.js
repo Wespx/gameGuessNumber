@@ -7,6 +7,7 @@ const isNumber = function(n) {
 const guessNumber = function() {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
     let numberGuess = 10;
+    console.log(randomNumber);
 
     const askUser = function() {
         if (numberGuess < 0) {
@@ -16,6 +17,7 @@ const guessNumber = function() {
                 guessNumber();
                 return;
             } else {
+                alert('Пока!');
                 return;
             }
         }
@@ -23,6 +25,7 @@ const guessNumber = function() {
         const guess = prompt('Угадай число от 1 до 100');
 
         if (guess === null) {
+            alert('Пока!');
             return;
         } else if (!isNumber(guess) || guess < 1 || guess > 100) {
             alert('Введи число от 1 до 100!');
@@ -32,6 +35,8 @@ const guessNumber = function() {
 
             if (playAgain) {
                 guessNumber();
+            } else {
+                alert('Пока!');
             }
         } else if (+guess > randomNumber) {
             alert('Загаданное число меньше, осталось попыток: ' + numberGuess);
